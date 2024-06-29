@@ -2071,6 +2071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonShop: {fileID: 527411987}
   LoadScene: Tienda
+  CurrentScene: Cultivos
+  PlayerData: {fileID: 1725288926}
 --- !u!4 &1331188244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3235272786178669390, guid: 101b91a9f4f39c246b44e60a17365148, type: 3}
@@ -2649,6 +2651,51 @@ Transform:
   m_Children:
   - {fileID: 1314738169}
   - {fileID: 2027321659}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1725288925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1725288927}
+  - component: {fileID: 1725288926}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1725288926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725288925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2482e0ba7cb8849af3ec579df8fa6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1774439098}
+--- !u!4 &1725288927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725288925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1733913931
@@ -3242,7 +3289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -747.68, y: 65.7}
+  m_AnchoredPosition: {x: -722.33, y: 65.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1932504985
@@ -3438,7 +3485,7 @@ Transform:
   m_GameObject: {fileID: 2027321658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.93, y: 1.75, z: 0}
+  m_LocalPosition: {x: -9.8, y: 1.75, z: 0}
   m_LocalScale: {x: 1.36, y: 1.24, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3510,6 +3557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonCows: {fileID: 89855110}
   LoadScene: Vacas
+  CurrentScene: Cultivos
+  PlayerData: {fileID: 0}
 --- !u!61 &2027321662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3770,3 +3819,4 @@ SceneRoots:
   - {fileID: 486264874}
   - {fileID: 2090952815}
   - {fileID: 1710068220}
+  - {fileID: 1725288927}
