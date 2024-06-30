@@ -30,6 +30,7 @@ public class ToSceneShop : MonoBehaviour
     }
     public void ChangeScene() //El boton tomara este metodo como opción para cambiar la escena
     {
+        PlayerData.SavePlayerInventory();
         RelojControl.SaveRelojTimer();
         PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador
         SceneManager.LoadScene(LoadScene);
@@ -50,6 +51,7 @@ public class ToSceneShop : MonoBehaviour
     {
         if (IsColliding == true && Input.GetKeyDown(KeyCode.E)) //Mientras este en colision y se presione la tecla E, iremos a la otra escena
         {
+            PlayerData.SavePlayerInventory();
             RelojControl.SaveRelojTimer();
             PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador en la escena
             SceneManager.LoadScene(LoadScene); 

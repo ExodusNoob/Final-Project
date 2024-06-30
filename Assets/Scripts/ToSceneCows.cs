@@ -30,6 +30,7 @@ public class ToSceneCows : MonoBehaviour
     }
     public void ChangeScene() //El boton tomara este metodo como opción para cambiar la escena
     {
+        PlayerData.SavePlayerInventory();
         RelojControl.SaveRelojTimer();
         PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador
         SceneManager.LoadScene(LoadScene); //Cargamos otra escena
@@ -49,6 +50,7 @@ public class ToSceneCows : MonoBehaviour
     {
         if (IsColliding == true && Input.GetKeyDown(KeyCode.E)) //Al colisionar y presionar E te llevara a la escena
         {
+            PlayerData.SavePlayerInventory();
             RelojControl.SaveRelojTimer();
             PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador en la escena
             SceneManager.LoadScene(LoadScene);

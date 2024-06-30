@@ -706,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1607938129}
+  playerInventory: {fileID: 0}
 --- !u!4 &362268435
 Transform:
   m_ObjectHideFlags: 0
@@ -3163,6 +3164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1607938135}
   - component: {fileID: 1607938134}
+  - component: {fileID: 1607938136}
   - component: {fileID: 1607938133}
   - component: {fileID: 1607938132}
   - component: {fileID: 1607938131}
@@ -3334,6 +3336,7 @@ MonoBehaviour:
   speedPlayer: 5
   horizontal: 0
   vertical: 0
+  TrigoQuantity: 0
 --- !u!4 &1607938135
 Transform:
   m_ObjectHideFlags: 0
@@ -3349,6 +3352,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607938136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607938129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7743651d16e4640a71e4a6a1097579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  TrigoPlayer: 0
 --- !u!4 &1610067350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4908407791815227275, guid: c3f930ae6278d2449bb83bd2d791ee94, type: 3}

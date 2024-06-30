@@ -8,6 +8,11 @@ public class PlayerData : MonoBehaviour
     private string PosCultivos = "Cultivos";
     private string PosTienda = "Tienda";
     private string PosCows = "Vacas";
+    public PlayerInventory playerInventory;
+    private void Awake()
+    {
+        playerInventory = FindAnyObjectByType<PlayerInventory>();
+    }
 
     public void SavePlayerData(string ActualScene) //Se utiliza para poder guardar la información del jugador al salir de la escena de Cultivos
     {
@@ -26,5 +31,15 @@ public class PlayerData : MonoBehaviour
 
         Vector2 savedPosition = new Vector2(PosX, PosY);
         Player.transform.position = savedPosition;
+    }
+    public void SavePlayerInventory()
+    {
+        PlayerPrefs.SetInt("InventaryTrigo", playerInventory.TrigoPlayer);
+        PlayerPrefs.Save();
+    }
+    public void LoadPlayerInventory()
+    {
+        int trigoSaved = PlayerPrefs.GetInt("InventaryTrigo");
+        playerInventory.TrigoPlayer = trigoSaved;
     }
 }

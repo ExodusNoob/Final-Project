@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     private Animator _compAnimator;
     public float horizontal;
     public float vertical;
+    public int TrigoQuantity;
     void Awake()
     {
         _compRigidbody2D = GetComponent<Rigidbody2D>();
