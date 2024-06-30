@@ -10,6 +10,7 @@ public class ToSceneCows : MonoBehaviour
     public string CurrentScene;
     private bool IsColliding = false; //Un booleano para saber si el jugador esta en colisión
     public PlayerData PlayerData; //Declaramos la variable
+    public RelojControl RelojControl;
     void Awake()
     {
         PlayerData = FindObjectOfType<PlayerData>(); //Referenciamos los componentes
@@ -29,6 +30,7 @@ public class ToSceneCows : MonoBehaviour
     }
     public void ChangeScene() //El boton tomara este metodo como opción para cambiar la escena
     {
+        RelojControl.SaveRelojTimer();
         PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador
         SceneManager.LoadScene(LoadScene); //Cargamos otra escena
     }
@@ -47,6 +49,7 @@ public class ToSceneCows : MonoBehaviour
     {
         if (IsColliding == true && Input.GetKeyDown(KeyCode.E)) //Al colisionar y presionar E te llevara a la escena
         {
+            RelojControl.SaveRelojTimer();
             PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador en la escena
             SceneManager.LoadScene(LoadScene);
         }

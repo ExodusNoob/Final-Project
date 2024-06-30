@@ -10,6 +10,7 @@ public class ToSceneShop : MonoBehaviour
     public string CurrentScene;
     private bool IsColliding = false; //Un booleano para saber si el jugador esta en colisión
     public PlayerData PlayerData; //Se declara la variable para que sea accesible
+    public RelojControl RelojControl;
     void Awake()
     {
         PlayerData = FindObjectOfType<PlayerData>(); //Se referencia para poder usar sus componentes
@@ -29,6 +30,7 @@ public class ToSceneShop : MonoBehaviour
     }
     public void ChangeScene() //El boton tomara este metodo como opción para cambiar la escena
     {
+        RelojControl.SaveRelojTimer();
         PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador
         SceneManager.LoadScene(LoadScene);
     }
@@ -48,6 +50,7 @@ public class ToSceneShop : MonoBehaviour
     {
         if (IsColliding == true && Input.GetKeyDown(KeyCode.E)) //Mientras este en colision y se presione la tecla E, iremos a la otra escena
         {
+            RelojControl.SaveRelojTimer();
             PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador en la escena
             SceneManager.LoadScene(LoadScene); 
         }
