@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.36, y: -0.67, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,6 +52,7 @@ MonoBehaviour:
   ColorDirtSembrada: {r: 0.7075472, g: 0.2568802, b: 0, a: 1}
   ColorDirtNormal: {r: 1, g: 1, b: 1, a: 1}
   CocecharTrigo: {fileID: 0}
+  PlayerInventory: {fileID: 0}
   EstaSembrada: 0
   TiempoDeCocecha: 0
   starTimer: 0

@@ -11,6 +11,7 @@ public class ToSceneCows : MonoBehaviour
     private bool IsColliding = false; //Un booleano para saber si el jugador esta en colisión
     public PlayerData PlayerData; //Declaramos la variable
     public RelojControl RelojControl;
+    public SoundManager soundManager;
     void Awake()
     {
         PlayerData = FindObjectOfType<PlayerData>(); //Referenciamos los componentes
@@ -30,6 +31,7 @@ public class ToSceneCows : MonoBehaviour
     }
     public void ChangeScene() //El boton tomara este metodo como opción para cambiar la escena
     {
+        soundManager.PlaySound(0);
         PlayerData.SavePlayerInventory();
         RelojControl.SaveRelojTimer();
         PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador

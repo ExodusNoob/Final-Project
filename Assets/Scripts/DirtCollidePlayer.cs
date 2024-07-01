@@ -14,7 +14,11 @@ public class DirtCollidePlayer : MonoBehaviour
     private SpriteRenderer _compSpriteRenderer;
     private BoxCollider2D boxCollider;
     public float TiempoDeCocecha;
-    public bool starTimer;
+    public bool startTimer;
+    public string IsItPlanted = "no";
+    public string IsItTrigoActive = "no";
+    public string nombre;
+
     void Awake()
     {
         CocecharTrigo = FindObjectOfType<CocecharTrigo>();
@@ -24,17 +28,46 @@ public class DirtCollidePlayer : MonoBehaviour
     }
     private void Start()
     {
+        nombre = this.name;
         Trigo = transform.Find("trigo").gameObject;
+        IsItPlanted = PlayerPrefs.GetString(this.name, IsItPlanted);
+        IsItTrigoActive = PlayerPrefs.GetString(this.name + "Trigo", IsItTrigoActive);
+        if (IsItPlanted == "yes")
+        {
+            SetColorDirt();
+        }
+        if (IsItTrigoActive == "no")
+        {
+            Trigo.SetActive(false);
+        }
+    }
+    private void SaveYesOrNot()
+    {
+        PlayerPrefs.SetString(this.name, IsItPlanted);
+        PlayerPrefs.Save();
+    }
+    private void SaveTrigoState()
+    {
+        PlayerPrefs.SetString(this.name + "Trigo", IsItTrigoActive);
+        PlayerPrefs.Save();
     }
     private void SetColorDirt()
     {
         if (PlayerInventory.TrigoPlayer > 0)
         {
+            if (IsItPlanted == "no")
+            {
+                CocecharTrigo.PlantarTrigoResta();
+
+            }
+            IsItPlanted = "yes";
+            SaveYesOrNot();
+            IsItTrigoActive = "no";
+            SaveTrigoState();
             _compSpriteRenderer.color = ColorDirtSembrada;
-            starTimer = true;
+            startTimer = true;
             EstaSembrada = true;
             boxCollider.enabled = false;
-            CocecharTrigo.PlantarTrigoResta();
         }
         
     }
@@ -64,7 +97,11 @@ public class DirtCollidePlayer : MonoBehaviour
 
     void Update()
     {
-        if (starTimer == true)
+        if (EstaSembrada == false)
+        {
+            Trigo.SetActive(false);
+        }
+        if (startTimer == true)
         {
             TiempoDeCocecha = TiempoDeCocecha + Time.deltaTime;
             if (TiempoDeCocecha >= 20)
@@ -72,12 +109,8 @@ public class DirtCollidePlayer : MonoBehaviour
                 TiempoDeCocecha = 0;
                 ActivateTrigo();
                 SetColorOffDirt();
-                starTimer = false;
+                startTimer = false;
             }
-        }
-        if (EstaSembrada == false)
-        {
-            Trigo.SetActive(false);
         }
         if (IsColliding == true && Input.GetKeyDown(KeyCode.E))
         {
@@ -89,7 +122,9 @@ public class DirtCollidePlayer : MonoBehaviour
             {
                 Trigo.SetActive(false);
                 EstaSembrada = false;
+                IsItPlanted = "no";
                 CocecharTrigo.CocecharTrigoSuma();
+                SaveYesOrNot();
             }
         }
     }

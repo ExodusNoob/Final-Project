@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    private AudioSource[] audiosources;
+    public AudioSource[] audiosources;
     private void Awake()
     {
         audiosources = GetComponents<AudioSource>();
@@ -22,11 +22,5 @@ public class SoundManager : MonoBehaviour
         {
             audiosources[reference].Stop();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

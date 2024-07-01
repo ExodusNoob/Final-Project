@@ -8,16 +8,17 @@ public class ToSceneShop : MonoBehaviour
     public GameObject ButtonShop; //Boton que llevara a la tienda
     public string LoadScene; //Nombre de la Escena a la que iremos
     public string CurrentScene;
-    private bool IsColliding = false; //Un booleano para saber si el jugador esta en colisión
+    public bool IsColliding = false; //Un booleano para saber si el jugador esta en colisión
     public PlayerData PlayerData; //Se declara la variable para que sea accesible
     public RelojControl RelojControl;
+    public SoundManager soundManager;
     void Awake()
     {
         PlayerData = FindObjectOfType<PlayerData>(); //Se referencia para poder usar sus componentes
     }
     void Start()
     {
-            PlayerData.LoadPlayerData(CurrentScene); //Carga la ultima posición del jugador en la escena
+        PlayerData.LoadPlayerData(CurrentScene); //Carga la ultima posición del jugador en la escena
         ButtonShop.SetActive(false); //El boton empezara sin activar para que no moleste en la pantalla
     }
     void OnTriggerEnter2D(Collider2D collider) //Segun el gameObject se activara el boton
@@ -30,6 +31,7 @@ public class ToSceneShop : MonoBehaviour
     }
     public void ChangeScene() //El boton tomara este metodo como opción para cambiar la escena
     {
+        soundManager.PlaySound(0);
         PlayerData.SavePlayerInventory();
         RelojControl.SaveRelojTimer();
         PlayerData.SavePlayerData(CurrentScene); //Guardamos la info de nuestro jugador

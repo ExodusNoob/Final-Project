@@ -13,7 +13,10 @@ public class PlayerData : MonoBehaviour
     {
         playerInventory = FindAnyObjectByType<PlayerInventory>();
     }
+    private void Start()
+    {
 
+    }
     public void SavePlayerData(string ActualScene) //Se utiliza para poder guardar la información del jugador al salir de la escena de Cultivos
     {
         if (ActualScene == PosCultivos || ActualScene == PosTienda || ActualScene == PosCows)

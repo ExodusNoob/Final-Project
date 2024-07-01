@@ -5,16 +5,25 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public PlayerData playerData;
-    public int TrigoPlayer = 0;
-    public int Money = 0;
-    public int CowQuantity = 0;
+    public int TrigoPlayer;
+    public int Money;
+    public int CowQuantity;
+    private string IsFirstTime = "yes";
     private void Awake()
     {
         playerData = FindAnyObjectByType<PlayerData>();
     }
     private void Start()
     {
+        IsFirstTime = PlayerPrefs.GetString("FirstTime");
         playerData.LoadPlayerInventory();
+        if (IsFirstTime == "yes")
+        {
+            TrigoPlayer = 4;
+            IsFirstTime = "false";
+            PlayerPrefs.SetString("FirstTime", IsFirstTime);
+            PlayerPrefs.Save();
+        }
     }
     public static PlayerInventory operator +(PlayerInventory player)
     {
