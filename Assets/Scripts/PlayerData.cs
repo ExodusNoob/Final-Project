@@ -35,11 +35,17 @@ public class PlayerData : MonoBehaviour
     public void SavePlayerInventory()
     {
         PlayerPrefs.SetInt("InventaryTrigo", playerInventory.TrigoPlayer);
+        PlayerPrefs.SetInt("InventaryMoney", playerInventory.Money);
+        PlayerPrefs.SetInt("InvetaryCowQuantity", playerInventory.CowQuantity);
         PlayerPrefs.Save();
     }
     public void LoadPlayerInventory()
     {
         int trigoSaved = PlayerPrefs.GetInt("InventaryTrigo");
+        int moneySaved = PlayerPrefs.GetInt("InventaryMoney");
+        int cowquantitySaved = PlayerPrefs.GetInt("InvetaryCowQuantity");
         playerInventory.TrigoPlayer = trigoSaved;
+        playerInventory.Money = moneySaved;
+        playerInventory.CowQuantity = cowquantitySaved; 
     }
 }

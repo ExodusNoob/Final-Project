@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class JustGoToPlay : MonoBehaviour
 {
+    public SoundManager SoundManager;
     public string LastScene;
     public void PlayGame()
     {
+        SoundManager.PlaySound(0); //no suena, pero si llama a la canción
         SceneManager.LoadScene(LastScene);
     }
 }
