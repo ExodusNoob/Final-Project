@@ -54,7 +54,6 @@ public class CowController : MonoBehaviour
             {
                     _compAnimator.SetBool("CowEating", AnimationTrue);
 
-
             }
 
             if (CurrentTime >= LimitTime)

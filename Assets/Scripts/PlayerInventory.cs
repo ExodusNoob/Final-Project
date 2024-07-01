@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public PlayerData playerData;
-    public int TrigoPlayer;
-    public int Money;
-    public int CowQuantity;
+    public int TrigoPlayer = 0;
+    public int Money = 0;
+    public int CowQuantity = 0;
     private void Awake()
     {
         playerData = FindAnyObjectByType<PlayerData>();

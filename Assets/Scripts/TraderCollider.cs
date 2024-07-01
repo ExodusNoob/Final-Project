@@ -10,6 +10,7 @@ public class TraderCollider : MonoBehaviour
     int TrigoVender = 5;
     int MoneyQuantity = 50;
     int CostCow = 250;
+    public SoundManager SoundManager;
 
     private void Start()
     {
@@ -30,15 +31,19 @@ public class TraderCollider : MonoBehaviour
             {
                 Shop.SetActive(false);
                 IsColliding = false;
+                SoundManager.PlaySound(2);
             }
         }
     }
     public void TradeTrigoForMoney()
     {
+        SoundManager.PlaySound(0);
         if (PlayerInventory.TrigoPlayer >= TrigoVender)
         {
             PlayerInventory.TrigoPlayer -= TrigoVender;
             PlayerInventory.Money += MoneyQuantity;
+            SoundManager.PlaySound(3);
+
         }
         else
         {
@@ -47,10 +52,12 @@ public class TraderCollider : MonoBehaviour
     }
     public void TradeMoneyForTrigo()
     {
+        SoundManager.PlaySound(0);
         if (PlayerInventory.Money >= MoneyQuantity)
         {
             PlayerInventory.TrigoPlayer += TrigoVender;
             PlayerInventory.Money -= MoneyQuantity;
+            SoundManager.PlaySound(3);
         }
         else
         {
@@ -59,10 +66,12 @@ public class TraderCollider : MonoBehaviour
     }
     public void BuyACow()
     {
+        SoundManager.PlaySound(0);
         if (PlayerInventory.Money >= CostCow)
         {
             PlayerInventory.Money -= CostCow;
             PlayerInventory.AddCow();
+            SoundManager.PlaySound(3);
         }
         else
         {
@@ -73,6 +82,7 @@ public class TraderCollider : MonoBehaviour
     {
         if (IsColliding == true && Input.GetKeyDown(KeyCode.E))
         {
+            SoundManager.PlaySound(2);
             Shop.SetActive(true);
         }
     }

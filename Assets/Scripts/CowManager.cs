@@ -19,8 +19,8 @@ public class CowManager : MonoBehaviour
     }
     private Vector2 GetRandomSpawn()
     {
-        float x = Random.Range(-7.4f, 8);
-        float y = Random.Range(-2.5f, 1.9f);
+        float x = Random.Range(-7.551319f, 8);
+        float y = Random.Range(-2.5f, 2.9f);
         return new Vector2(x,y);
     }
 }
